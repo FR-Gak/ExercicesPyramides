@@ -9,8 +9,7 @@ public class Pyra1et2 {
     private static String direction = "";
 
     public static void main(String[] args) {
-    	//Data recovery from user :
-    	//The number of lines and the direction of the pyramid
+        // Prompt the user to select the pyramid size and direction
         try (Scanner clavier = new Scanner(System.in)) {
             System.out.println("Entrer un entier :");
             lines = clavier.nextInt();
@@ -29,8 +28,8 @@ public class Pyra1et2 {
             System.out.println("Choix non valide.");
             return;
         }
-        
-        //call method drawLine with the value of currentLine according to the direction
+
+        // Draw the pyramid according to the requested size and direction
         for (int i = 0; i < lines; i++) {
             int value;
             switch (directionEnum) {
@@ -46,8 +45,12 @@ public class Pyra1et2 {
             drawLine(value);
         }
     }
-    
-    //draw one line of the pyramid
+
+    /**
+     * Draw one line of the pyramid
+     *
+     * @param currentLine The index of the line from {@code 0} to {@code size - 1}
+     */
     public static void drawLine(int currentLine) {
         for (int e = (lines - 1) - (currentLine + 1); e >= 0; e--) System.out.print(" ");
         for (int e = 2 * currentLine; e >= 0; e--) System.out.print("*");
